@@ -1,0 +1,15 @@
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,300,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  font-family: "Satoshi", sans-serif;
+  @apply scroll-smooth antialiased dark:bg-gradient-to-br dark:from-gray-900 dark:to-slate-900;
+}
+
+body::-webkit-scrollbar {
+  @apply w-0;
+}
