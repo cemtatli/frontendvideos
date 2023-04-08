@@ -50,11 +50,11 @@ function List() {
       <Search setSearchTerm={setSearchTerm} filteredVideos={filteredVideos} />
       <div className="mt-4 flex flex-col gap-4">
         {filteredVideos.map((video) => (
-          <div key={video.id} className="overflow-hidden rounded-md bg-white shadow-md dark:bg-slate-800 dark:text-white">
+          <div key={video.id} className="overflow-hidden rounded-md bg-white shadow-md dark:bg-slate-900 dark:text-white">
             <div className="flex cursor-pointer items-center justify-between rounded-md p-4" onClick={() => handleAccordionTitle(video)}>
               <h3 className="max-w-[90%] truncate text-xs font-medium capitalize leading-relaxed md:text-sm">
                 {video.snippet.title.toLowerCase()} *
-                <span className="px-1 text-xs font-semibold">{video.snippet.videoOwnerChannelTitle.toLowerCase()}</span>
+                <span className="px-2 text-xs font-semibold">{video.snippet.videoOwnerChannelTitle.toLowerCase()}</span>
               </h3>
 
               <ChevronDownIcon
@@ -79,7 +79,7 @@ function List() {
                   title={video.snippet.title}
                 ></iframe>
                 <button
-                  className="my-2.5 rounded-md bg-red-100 px-4 py-2 text-xs font-bold text-red-700 transition-colors hover:bg-red-200 dark:bg-blue-100 dark:text-blue-700 dark:hover:bg-blue-200 md:hidden md:text-sm"
+                  className="my-2.5 rounded-md bg-red-100 px-4 py-2 text-xs font-medium text-red-700 transition-colors hover:bg-red-200 dark:bg-blue-100 dark:text-blue-700 dark:hover:bg-blue-200 md:hidden md:text-sm"
                   onClick={() => window.open(`https://www.youtube.com/watch?v=${video.snippet.resourceId.videoId}`)}
                 >
                   Youtube'da izle 🖐️
