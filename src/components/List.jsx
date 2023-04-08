@@ -50,7 +50,7 @@ function List() {
       <Search setSearchTerm={setSearchTerm} filteredVideos={filteredVideos} />
       <div className="mt-4 flex flex-col gap-4">
         {filteredVideos.map((video) => (
-          <div key={video.id} className="overflow-hidden rounded-md bg-white shadow-md dark:bg-slate-700 dark:text-white">
+          <div key={video.id} className="overflow-hidden rounded-md bg-white shadow-md dark:bg-slate-800 dark:text-white">
             <div className="flex cursor-pointer items-center justify-between rounded-md p-4" onClick={() => handleAccordionTitle(video)}>
               <h3 className="max-w-[90%] truncate text-xs font-medium capitalize leading-relaxed md:text-sm">
                 {video.snippet.title.toLowerCase()} *

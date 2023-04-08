@@ -4,7 +4,8 @@ export default function Tooltip() {
   return (
     <div className="tooltip group relative flex w-full flex-col items-start justify-center gap-2.5 bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-200 px-4 py-2.5 dark:bg-gradient-to-r dark:from-yellow-200 dark:via-yellow-300 dark:to-yellow-400 sm:items-center md:flex-row md:gap-4">
       <span className="pr-5 text-xs sm:text-sm md:pr-0">
-        Başta Frontend developerlar olmak üzere tüm developerlar için en yararlı ve öğretici YouTube videoları bir araya getirir ve sunar.
+        Başta Junior Frontend developerlar olmak üzere tüm geliştiricilerin sektöre girişinde yardımcı olabilecek en yararlı ve öğretici
+        YouTube videolarını derleyip sunmaktadır.
       </span>
       <a target="_blank" href="https://github.com/cemtatli/frontendvideos">
         <span
