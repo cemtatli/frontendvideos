@@ -28,7 +28,9 @@ function List() {
       });
   }, []);
 
-  const filteredVideos = videos.filter((video) => video.snippet.title.toLowerCase().trim("").includes(searchTerm.toLowerCase().trim("")));
+  const filteredVideos = videos.filter((video) =>
+    video.snippet.title.toLowerCase().trim("").includes(searchTerm.toLowerCase().trim(""))
+  );
 
   const handleAccordionTitle = (video) => {
     setActiveVideo(video.id);
@@ -50,16 +52,25 @@ function List() {
       <Search setSearchTerm={setSearchTerm} filteredVideos={filteredVideos} />
       <div className="mt-4 flex flex-col gap-4">
         {filteredVideos.map((video) => (
-          <div key={video.id} className="overflow-hidden rounded-md bg-white shadow-md dark:bg-slate-800 dark:text-white">
-            <div className="flex cursor-pointer items-center justify-between rounded-md p-4" onClick={() => handleAccordionTitle(video)}>
+          <div
+            key={video.id}
+            className="overflow-hidden rounded-md bg-white shadow-md dark:bg-slate-800 dark:text-white"
+          >
+            <div
+              className="flex cursor-pointer items-center justify-between rounded-md p-4"
+              onClick={() => handleAccordionTitle(video)}
+            >
               <h3 className="max-w-[90%] truncate text-xs font-medium capitalize leading-relaxed md:text-sm">
                 {video.snippet.title.toLowerCase()} *
-                <span className="px-2 text-xs font-semibold">{video.snippet.videoOwnerChannelTitle.toLowerCase()}</span>
+                <span className="medium px-2 text-xs capitalize ">
+                  {video.snippet.videoOwnerChannelTitle.toLowerCase()}
+                </span>
               </h3>
-
               <ChevronDownIcon
                 width={16}
-                className={`flex shrink-0 transform transition-transform ${isOpen && activeVideo === video.id ? "-rotate-180" : ""}`}
+                className={`flex shrink-0 transform transition-transform ${
+                  isOpen && activeVideo === video.id ? "-rotate-180" : ""
+                }`}
                 aria-hidden="true"
               />
             </div>
