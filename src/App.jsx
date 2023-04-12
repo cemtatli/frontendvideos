@@ -1,4 +1,8 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import List from "@/components/List";
+import Channel from "@/components/Channel";
+import Error404 from "@/components/Error404";
 import Header from "@/components/Header";
 import Tooltip from "@/components/Tooltip";
 import ScrollButton from "@/components/ScrollButton";
@@ -7,12 +11,20 @@ import { ThemeProvider } from "@/context/ThemeContext";
 
 function App() {
   return (
-    <ThemeProvider>
-      <Tooltip />
-      <Header />
-      <List />
-      <ScrollButton />
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider>
+        <Tooltip />
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<List />} />
+            <Route path="/Channel" element={<Channel />} />
+            <Route path="*" element={<Error404 />}></Route>
+          </Routes>
+        </main>
+        <ScrollButton />
+      </ThemeProvider>
+    </Router>
   );
 }
 

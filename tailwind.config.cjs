@@ -8,6 +8,9 @@ module.exports = {
       spacing: {
         15: "3.75rem",
       },
+      height:{
+        
+      }
     },
   },
   plugins: [],

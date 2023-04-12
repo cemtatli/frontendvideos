@@ -1,8 +1,14 @@
 {
   "name": "frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "keywords": [
+    "frontend",
+    "videos",
+    "resources",
+    "youtube"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "GENERATE_SOURCEMAP=false && vite build",
@@ -15,7 +21,8 @@
     "framer-motion": "^10.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.8.0"
+    "react-icons": "^4.8.0",
+    "react-router-dom": "^6.10.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

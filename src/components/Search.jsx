@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Search({ filteredVideos, setSearchTerm }) {
+export default function Search({ setSearchTerm }) {
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -9,7 +9,7 @@ export default function Search({ filteredVideos, setSearchTerm }) {
     <div className="relative">
       <input
         type="text"
-        placeholder={`Listelenen ${filteredVideos.length} video arasından arama yapabilirsin. ✨`}
+        placeholder={`Arama Yapabilirsin ✨`}
         className="md: h-10 w-full rounded-md border border-gray-300 px-4 py-2 pl-10 text-sm placeholder-gray-400 placeholder:text-xs focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400 dark:border-blue-500  dark:bg-transparent dark:text-gray-200 dark:placeholder-gray-500 md:placeholder:text-sm"
         onChange={handleSearch}
       />

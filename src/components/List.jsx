@@ -50,6 +50,9 @@ function List() {
   return (
     <div className="container mx-auto max-w-5xl p-4 px-8 md:px-4">
       <Search setSearchTerm={setSearchTerm} filteredVideos={filteredVideos} />
+      <div className="mt-4 flex w-full items-center text-xs  font-semibold text-blue-500 dark:text-white md:justify-center md:text-sm">
+        Faydalı olabilecek {filteredVideos.length} video listelenmiştir.
+      </div>
       <div className="mt-4 flex flex-col gap-4">
         {filteredVideos.map((video) => (
           <div
@@ -60,11 +63,8 @@ function List() {
               className="flex cursor-pointer items-center justify-between rounded-md p-4"
               onClick={() => handleAccordionTitle(video)}
             >
-              <h3 className="max-w-[90%] truncate text-xs font-medium capitalize leading-relaxed md:text-sm">
-                {video.snippet.title.toLowerCase()} *
-                <span className="medium px-2 text-xs capitalize ">
-                  {video.snippet.videoOwnerChannelTitle.toLowerCase()}
-                </span>
+              <h3 className="truncate pr-5 text-xs font-medium capitalize leading-relaxed md:text-sm">
+                {video.snippet.title.toLowerCase()}
               </h3>
               <ChevronDownIcon
                 width={16}
