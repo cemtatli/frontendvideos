@@ -50,9 +50,7 @@ function List() {
   return (
     <div className="container mx-auto max-w-5xl p-4 px-8 md:px-4">
       <Search setSearchTerm={setSearchTerm} filteredVideos={filteredVideos} />
-      <div className="mt-4 flex w-full items-center text-xs  font-semibold text-blue-500 dark:text-white md:justify-center md:text-sm">
-        Faydalı olabilecek {filteredVideos.length} video listelenmiştir.
-      </div>
+
       <div className="mt-4 flex flex-col gap-4">
         {filteredVideos.map((video) => (
           <div

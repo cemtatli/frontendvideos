@@ -8,7 +8,7 @@ html,
 body,
 #root {
   font-family: "Poppins", sans-serif;
-  @apply w-full scroll-smooth antialiased dark:bg-gradient-to-br dark:from-gray-900 dark:to-slate-900;
+  @apply w-full scroll-smooth antialiased dark:bg-slate-900;
 }
 
 body::-webkit-scrollbar {

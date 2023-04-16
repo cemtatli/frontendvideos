@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Search from "./Search";
 
 function Channel() {
   const [videos, setVideos] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
   const [filteredChannels, setFilteredChannels] = useState([]);
 
   useEffect(() => {
@@ -26,19 +24,15 @@ function Channel() {
   }, []);
 
   useEffect(() => {
-    const filteredChannels = videos
-      .filter((video) =>
-        video.snippet.videoOwnerChannelTitle.toLowerCase().trim("").includes(searchTerm.toLowerCase().trim())
-      )
-      .reduce((acc, curr) => {
-        const channelTitle = curr.snippet.videoOwnerChannelTitle.toLowerCase();
-        if (!acc[channelTitle]) {
-          acc[channelTitle] = true;
-        }
-        return acc;
-      }, {});
+    const filteredChannels = videos.reduce((acc, curr) => {
+      const channelTitle = curr.snippet.videoOwnerChannelTitle.toLowerCase();
+      if (!acc[channelTitle]) {
+        acc[channelTitle] = true;
+      }
+      return acc;
+    }, {});
     setFilteredChannels(Object.keys(filteredChannels));
-  }, [videos, searchTerm]);
+  }, [videos]);
 
   const sortedChannels = filteredChannels.sort((a, b) => {
     const channelA = a.toLowerCase();
@@ -53,11 +47,7 @@ function Channel() {
 
   return (
     <div className="container mx-auto max-w-5xl p-4 px-8 md:px-4">
-      <h2 className="mb-4 text-xl font-bold dark:text-white">Kanal Listesi</h2>
-      <div className="mb-4">
-        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      </div>
-      <div className="flex flex-col items-center gap-4 md:items-start">
+      <div className="flex flex-col items-center gap-4">
         {uniqueFirstLetters.map((letter) => (
           <div key={letter} className="grid gap-2">
             <div className="mb-2 text-lg font-bold text-blue-500">{letter.toUpperCase()}</div>
@@ -66,9 +56,9 @@ function Channel() {
               .map((channel) => (
                 <div
                   key={channel}
-                  className="inline-flex w-64 overflow-hidden rounded-md bg-white shadow-md dark:bg-slate-800 dark:text-white"
+                  className="inline-flex w-64 overflow-hidden rounded-md bg-white dark:bg-slate-800 dark:text-white"
                 >
-                  <div className="flex cursor-pointer items-center justify-center  rounded-md p-4">
+                  <div className="flex cursor-pointer items-center justify-center rounded-md p-4">
                     <h3 className="text-xs font-medium capitalize leading-relaxed md:text-sm">{channel}</h3>
                   </div>
                 </div>
