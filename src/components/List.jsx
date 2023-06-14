@@ -11,21 +11,36 @@ function List() {
   const [activeVideo, setActiveVideo] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("https://www.googleapis.com/youtube/v3/playlistItems", {
+    const fetchVideos = async () => {
+      const initialResponse = await axios.get("https://www.googleapis.com/youtube/v3/playlistItems", {
         params: {
           part: "snippet",
           playlistId: import.meta.env.VITE_REACT_APP_PLAYLIST_ID,
           key: import.meta.env.VITE_REACT_APP_API_KEY,
-          maxResults: 100,
+          maxResults: 50,
         },
-      })
-      .then((res) => {
-        setVideos(res.data.items);
-      })
-      .catch((err) => {
-        console.log(err);
       });
+      const initialVideos = initialResponse.data.items;
+      setVideos(initialVideos);
+
+      const nextPageToken = initialResponse.data.nextPageToken;
+      if (nextPageToken) {
+        // Fetch remaining videos using nextPageToken for pagination {thx chatgpt💠}
+        const remainingResponse = await axios.get("https://www.googleapis.com/youtube/v3/playlistItems", {
+          params: {
+            part: "snippet",
+            playlistId: import.meta.env.VITE_REACT_APP_PLAYLIST_ID,
+            key: import.meta.env.VITE_REACT_APP_API_KEY,
+            maxResults: 50,
+            pageToken: nextPageToken,
+          },
+        });
+        const remainingVideos = remainingResponse.data.items;
+        setVideos((prevVideos) => [...prevVideos, ...remainingVideos]);
+      }
+    };
+
+    fetchVideos();
   }, []);
 
   const filteredVideos = videos.filter((video) =>
