@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Transition } from "@headlessui/react";
 import Search from "./Search";
+import { ChevronDownIcon } from "lucide-react";
 
 function List() {
   const [videos, setVideos] = useState([]);
@@ -63,24 +63,23 @@ function List() {
   }, [setIsOpen]);
 
   return (
-    <div className="container mx-auto max-w-5xl p-4 px-8 md:px-4">
+    <main className="container mx-auto  h-full max-w-5xl p-4 px-8 md:px-4">
       <Search setSearchTerm={setSearchTerm} filteredVideos={filteredVideos} />
-
       <div className="mt-4 flex flex-col gap-4">
         {filteredVideos.map((video) => (
           <div
             key={video.id}
-            className="overflow-hidden rounded-md bg-white shadow-md dark:bg-slate-800 dark:text-white"
+            className="overflow-hidden rounded-md bg-white shadow transition-all duration-150 dark:border dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-900"
           >
             <div
-              className="flex cursor-pointer items-center justify-between rounded-md p-4"
+              className="flex cursor-pointer items-center justify-between rounded-md p-3"
               onClick={() => handleAccordionTitle(video)}
             >
               <h3 className="truncate pr-5 text-xs font-medium capitalize leading-relaxed md:text-sm">
                 {video.snippet.title.toLowerCase()}
               </h3>
               <ChevronDownIcon
-                width={16}
+                width={20}
                 className={`flex shrink-0 transform transition-transform ${
                   isOpen && activeVideo === video.id ? "-rotate-180" : ""
                 }`}
@@ -103,7 +102,7 @@ function List() {
                   title={video.snippet.title}
                 ></iframe>
                 <button
-                  className="my-2.5 rounded-md bg-red-100 px-4 py-2 text-xs font-semibold text-red-700 transition-colors hover:bg-red-200 dark:bg-blue-100 dark:text-blue-700 dark:hover:bg-blue-200 md:hidden md:text-sm"
+                  className="my-2.5 rounded-md border border-zinc-700 bg-zinc-800  px-4 py-2 text-xs font-semibold text-stone-200 transition-all hover:scale-110 md:hidden md:text-sm"
                   onClick={() => window.open(`https://www.youtube.com/watch?v=${video.snippet.resourceId.videoId}`)}
                 >
                   Youtube'da izle 🖐️
@@ -113,7 +112,7 @@ function List() {
           </div>
         ))}
       </div>
-    </div>
+    </main>
   );
 }
 export default List;
