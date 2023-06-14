@@ -1,6 +1,7 @@
+import { Search } from "lucide-react";
 import React from "react";
 
-export default function Search({ setSearchTerm, filteredVideos }) {
+export default function SearchBox({ setSearchTerm, filteredVideos }) {
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -10,14 +11,12 @@ export default function Search({ setSearchTerm, filteredVideos }) {
       <input
         type="text"
         placeholder={` ${filteredVideos.length} video arasından arama yapabilirsin. `}
-        className="md: h-10 w-full rounded-md border border-gray-300 px-4 py-2 pl-10 text-sm placeholder-gray-400 placeholder:text-xs focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400 dark:border-blue-500  dark:bg-transparent dark:text-gray-200 dark:placeholder-gray-500 md:placeholder:text-sm"
+        className="h-12 w-full truncate rounded-md border border-gray-400 px-4 py-2 pl-10 text-sm placeholder-stone-600 placeholder:text-xs focus:border-transparent focus:outline-none
+         focus:ring-2 focus:ring-zinc-800 dark:border-zinc-700 dark:bg-transparent dark:text-stone-200 dark:placeholder-zinc-300 md:placeholder:text-sm"
         onChange={handleSearch}
       />
       <div className="pointer-events-none absolute inset-y-0 left-2.5 flex items-center">
-        <svg className="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none">
-          <path d="M15.5 15.5L20.5 20.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="10.5" cy="10.5" r="7.5" stroke="currentColor" />
-        </svg>
+        <Search width={20} height={20} className="text-zinc-800 dark:text-zinc-300" />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
+import { ChevronUpSquare } from "lucide-react";
+
 import { useState, useEffect } from "react";
-import { ChevronUpIcon } from "@heroicons/react/24/outline";
 
 function ScrollButton() {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,9 +33,14 @@ function ScrollButton() {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-4 right-2.5 z-50 flex h-8 w-8 items-center justify-center rounded-full border bg-white p-1.5 dark:text-black md:hidden lg:block"
+          className="fixed bottom-2 right-1.5 z-50 flex items-center justify-center rounded-full p-1 md:hidden lg:block"
         >
-          <ChevronUpIcon />
+          <ChevronUpSquare
+            width={24}
+            height={24}
+            strokeWidth="1.5"
+            className="dark:text-stone-300"
+          />
         </button>
       )}
     </>
