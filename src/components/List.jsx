@@ -102,7 +102,7 @@ function List() {
                   title={video.snippet.title}
                 ></iframe>
                 <button
-                  className="my-2.5 rounded-md border border-zinc-700 bg-zinc-800  px-4 py-2 text-xs font-semibold text-stone-200 transition-all hover:scale-110 md:hidden md:text-sm"
+                  className="my-2.5 rounded-md border border-zinc-700 bg-zinc-800 px-4 py-2 text-xs font-semibold text-stone-200 transition-all hover:scale-110 md:hidden md:text-sm"
                   onClick={() => window.open(`https://www.youtube.com/watch?v=${video.snippet.resourceId.videoId}`)}
                 >
                   Youtube'da izle 🖐️

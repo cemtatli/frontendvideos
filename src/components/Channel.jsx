@@ -50,13 +50,13 @@ function Channel() {
       <div className="flex flex-col items-center gap-4">
         {uniqueFirstLetters.map((letter) => (
           <div key={letter} className="grid gap-2">
-            <div className="mb-2 text-lg font-bold text-blue-500">{letter.toUpperCase()}</div>
+            <div className="mb-2 text-lg font-bold text-zinc-800 dark:text-stone-100">{letter.toUpperCase()}</div>
             {sortedChannels
               .filter((channel) => channel.toLowerCase().startsWith(letter))
               .map((channel) => (
                 <div
                   key={channel}
-                  className="inline-flex w-64 overflow-hidden rounded-md bg-white dark:bg-slate-800 dark:text-white"
+                  className="inline-flex w-64 overflow-hidden rounded-md border border-zinc-700 bg-zinc-800  text-xs font-semibold text-white"
                 >
                   <div className="flex cursor-pointer items-center justify-center rounded-md p-4">
                     <h3 className="text-xs font-medium capitalize leading-relaxed md:text-sm">{channel}</h3>
